@@ -25,14 +25,14 @@ var job = new CronJob({
      hosts.forEach(function(host) {
        ping.sys.probe(host, function(isAlive) {
            if (isAlive === true) {
-             var noteBodyAlive = "Your blog " + host + " running on your Raspi is alive!";
+             var noteBodyAlive = "Your blog " + host + " is alive!";
              pusher.note(iphone, noteTitle, noteBodyAlive, function(error, response){
                  // response is the JSON response from the API
                  // console.log("Response from pusher.note", response);
              });
            }
            else {
-             var noteBodyDead = "Your blog " + host + " running on your Raspi is dead :-(";
+             var noteBodyDead = "Your blog " + host + " is dead :-(";
              pusher.note(iphone, noteTitle, noteBodyDead, function(error, response){
                  // response is the JSON response from the API
                  // console.log("Response from pusher.note", response);
